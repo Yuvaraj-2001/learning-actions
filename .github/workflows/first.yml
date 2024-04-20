@@ -48,3 +48,21 @@ jobs:
               uses: actions/checkout@v2
             - name: Step two
               run: ls
+    dependtwo:
+        name: depends on one and four
+        needs: [job1, job3]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step one
+              uses: actions/checkout@v2
+            - name: Step two
+              run: ls
+    dependthree:
+        name: depends on one and four
+        needs: [job3, job4]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step one
+              uses: actions/checkout@v2
+            - name: Step two
+              run: ls
