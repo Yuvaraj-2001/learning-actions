@@ -58,7 +58,7 @@ jobs:
             - name: Step two
               run: "Get-ChildItem Env: | Sort-Object Name"
     depends:
-        name: depends Job
+        name: depends first and second
         needs: [job1, job2]
         runs-on: ubuntu-latest
         steps:
@@ -67,7 +67,7 @@ jobs:
             - name: Step two
               run: ls
     dependtwo:
-        name: depends on one and four
+        name: depends on one and third
         needs: [job1, job3]
         runs-on: ubuntu-latest
         steps:
@@ -76,7 +76,7 @@ jobs:
             - name: Step two
               run: ls
     dependthree:
-        name: depends on one and four
+        name: depends on three and four
         needs: [job3, job4]
         runs-on: ubuntu-latest
         steps:
