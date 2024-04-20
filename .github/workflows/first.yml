@@ -39,6 +39,30 @@ jobs:
               uses: actions/checkout@v2
             - name: Step two
               run: "Get-ChildItem Env: | Sort-Object Name"
+    independentJobTwo:
+      name: Independent Job two
+      runs-on: ubuntu-latest
+      steps:
+          - name: Step one
+            uses: actions/checkout@v2
+          - name: Step two
+            run: env
+    job2:
+        name: Second Job
+        runs-on: windows-latest
+        steps:
+            - name: Step one
+              uses: actions/checkout@v2
+            - name: Step two
+              run: "Get-ChildItem Env: | Sort-Object Name"
+    independentJob:
+        name: independent Job one
+        runs-on: windows-latest
+        steps:
+            - name: Step one
+              uses: actions/checkout@v2
+            - name: Step two
+              run: "Get-ChildItem Env: | Sort-Object Name"
     depends:
         name: depends Job
         needs: [job1, job2]
